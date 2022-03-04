@@ -1,0 +1,14 @@
+<div class="main">
+     
+    <!-- Specify fields to be displayed -->
+    <h1>{{ data.title }}</h1><br/>
+    <img src="{{ data.image }}"><br/>
+    <p>Produits restants: {{ data.stock }}</p><br/>
+    <p>En savoir plus : {{ data.description }}  </p><br/>
+
+    <a href="{{ data.id }}/delete">Delete</a>
+    <a href="{{ data.id }}/update">Update</a>
+    <br>
+    <a href="/iloveshop/">Back</a>
+
+</div>
