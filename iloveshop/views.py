@@ -21,7 +21,7 @@ def create_view(request) :
         form.save()
 
     context['form']= form
-    context["dataset"] = ILoveModels.objects.all().filter( {{data.stock}} > 0)
+    context["dataset"] = ILoveModels.objects.all().exclude(stock = 0)
 
     return render(request, "iloveshop/index.html", context)
 
