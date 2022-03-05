@@ -6,6 +6,15 @@
     <p>Produits restants: {{ data.stock }}</p><br/>
     <p>En savoir plus : {{ data.description }}  </p><br/>
 
+    <form method="POST">
+            <!-- Security token -->
+        {% csrf_token %}
+        <label for="buy">Select your desired quantity</label>
+        <input type="number" name="buy" id="buy" required>
+        <input type="submit" value="Buy"> 
+    </form>
+    <br><br>
+
     <a href="{{ data.id }}/delete">Delete</a>
     <a href="{{ data.id }}/update">Update</a>
     <br>

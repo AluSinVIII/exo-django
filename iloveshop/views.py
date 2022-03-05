@@ -33,9 +33,13 @@ def detail_view(request, id):
     product = get_object_or_404(ILoveModels, id = id)
     form = ILoveForm(request.POST or None, instance = product)
     
+    """
     if form.is_valid():
-        product.delete()
-        return redirect("/iloveshop")
+        form.save()
+        context["dataset"] = ILoveModels.objects.all().exclude(stock = 0)
+        ILoveModels.stock = ILoveModels.stock - 
+"""
+
          
     return render(request, "iloveshop/detail_view.html", context)
 

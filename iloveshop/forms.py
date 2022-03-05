@@ -13,3 +13,6 @@ class ILoveForm(forms.ModelForm) :
             "description",
             "stock",
         ]
+
+
+        
