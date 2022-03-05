@@ -1,5 +1,7 @@
 from itertools import product
 from multiprocessing import context
+from turtle import title
+from webbrowser import get
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpRequest, response, Http404, HttpResponseRedirect
 from django.urls import path
@@ -7,7 +9,7 @@ from django.urls import path
 from .models import Question
 from .models import ILoveModels
 
-from .forms import ILoveForm
+from .forms import BoughtForm, ILoveForm
 
 from django.utils import timezone
 
@@ -31,8 +33,9 @@ def detail_view(request, id):
 
     context["data"] = ILoveModels.objects.get(id = id)
     product = get_object_or_404(ILoveModels, id = id)
+    productname = ILoveForm.title
     form = ILoveForm(request.POST or None, instance = product)
-    
+    form2 = BoughtForm(request.POST or None, instance = product, title = productname)
     """
     if form.is_valid():
         form.save()
